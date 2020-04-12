@@ -12,13 +12,20 @@ pygame.init()
 deck = Deck()
 board = Board()
 player = Player('harry', 888) # OLD
-players = {
-    harry: Player('kusys', 888),
-    harry: Player('bybis', 887),
-    harry: Player('kiausai', 886),
-    harry: Player('shliundra', 885)        
-}
 
+players = [
+    Player('kushys', 888),
+    Player('bybis', 887),
+    Player('kiaushai', 886),
+    Player('shliundra', 885)
+]
+
+for player in players:
+    for i in range(3):
+        player.draw_card(deck)
+
+#def initialize_players(players):
+    
 hand = player.hand # OLD
 
 angles = [0, 5, 10, 15, 20, 25, 30, 35, 45,
@@ -54,11 +61,6 @@ game_zone = board.center_coord()
 g_z_x = range(580, 640, 10)
 g_z_y = range(250, 300, 5)
 
-
-draw_card()
-draw_card()
-draw_card()
-draw_card()
 
 # buttons
 take_all = Button()
@@ -124,7 +126,7 @@ get_hand_card_pos()
 
 
 
-def play_card(card, hand):
+def play_card(card):
     board.cards_played.append(card)
     hand.remove(card)
 
@@ -245,7 +247,7 @@ while not crashed:
 
             r_g_z_x = random.choice(g_z_x)
             r_g_z_y = random.choice(g_z_y)
-            turn()
+            turn(player)
             
 
 

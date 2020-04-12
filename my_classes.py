@@ -30,7 +30,7 @@ class Card(object):
         
     def get_path(self):
         name = self.get_name()
-        path = os.path.join('/home/simas/Documents/Python/cardgames/troika/img/cards/', name + '.png')
+        path = os.path.join('./img/cards/', name + '.png')
         return path
     
     def setPlayable(state):
@@ -68,6 +68,7 @@ class Deck(object):
     def draw(self):
         drawn_card = random.choice(self.cards_in_deck)
         self.cards_in_deck.remove(drawn_card)
+        print(len(self.cards_in_deck))
         return drawn_card
         
 
@@ -95,6 +96,9 @@ class Player(object):
     def get_ip(self):
         return self.ip
 
+    def draw_card(self, deck):
+        self.hand.append(deck.draw())
+        print("Card drawn!")
 
 
 
@@ -107,17 +111,17 @@ class Board(object):
         
     def get_path(self):
         name = 'board'
-        path = os.path.join('/home/simas/Documents/Python/cardgames/troika/img/board/', name + '.png')
+        path = os.path.join('./img/board/', name + '.png')
         return path
     
     def get_bottom_half_path(self):
         name = 'board_bottom_half'
-        b_path = os.path.join('/home/simas/Documents/Python/cardgames/troika/img/board/', name + '.png')
+        b_path = os.path.join('./img/board/', name + '.png')
         return b_path
     
     def get_top_half_path(self):
         name = 'board_top_half'
-        t_path = os.path.join('/home/simas/Documents/Python/cardgames/troika/img/board/', name + '.png')
+        t_path = os.path.join('./img/board/', name + '.png')
         return t_path    
         
     def load_img(self, colorkey=None):
@@ -188,12 +192,12 @@ class Button(object):
 
     def get_ta_path(self):
         name = 'take_all'
-        ta_path = os.path.join('/home/simas/Documents/Python/cardgames/troika/img/', name + '.png')
+        ta_path = os.path.join('./img/', name + '.png')
         return ta_path
    
     def get_et_path(self):
         name = 'end_turn'
-        et_path = os.path.join('/home/simas/Documents/Python/cardgames/troika/img/', name + '.png')
+        et_path = os.path.join('./img/', name + '.png')
         return et_path 
     
     def load_ta_img(self, colorkey=None):
